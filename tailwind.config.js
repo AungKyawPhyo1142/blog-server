@@ -2,11 +2,21 @@
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
-    "./resources/**/*.js"
+    "./resources/**/*.js",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+        colors:{
+            dark: {
+                primary: '#171219'
+            },
+        },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
+  darkMode: 'class'
 }
 
