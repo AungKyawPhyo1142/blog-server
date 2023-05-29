@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.content');
-});
+})->name('mainContent');
+
+Route::get('/create',[BlogController::class,'goBlogPage'])->name('createBlogPage');
+Route::post('/create-blog',[BlogController::class,'createBlog'])->name('createBlog');

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("title");
             $table->longText("content");
             $table->string("image");
-            $table->integer("rating");
-            $table->longText("comments");
+            $table->integer("rating")->default(0);
+            $table->longText("comments")->default("");
             $table->string("tags");
             $table->timestamps();
         });
