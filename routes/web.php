@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\blog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 
@@ -15,7 +16,8 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('/', function () {
-    return view('pages.content');
+    $data = blog::all();
+    return view('pages.content',compact('data'));
 })->name('mainContent');
 
 Route::get('/create',[BlogController::class,'goBlogPage'])->name('createBlogPage');

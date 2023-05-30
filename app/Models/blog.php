@@ -9,7 +9,7 @@ class blog extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "title","content","image","comments","rating","tags",
+        "title","content","image","rating","tags",
         "created_at","updated_at"
     ];
 }

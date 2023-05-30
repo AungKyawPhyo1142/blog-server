@@ -16,13 +16,13 @@ class BlogController extends Controller
         $this->validateBlog($request);
         $data = $this->getBlogData($request);
 
-        $file = $data['image'];
+        $file = $request->file('blog_image');
         $fileName = uniqid().'_'.$data['image'];
         $file->move(public_path().'/blogImages', $fileName);
-
+        $data['image'] = $fileName;
         blog::create($data);
 
-        return back()->with(['createSuccess'=>'Course created successfully']);
+        return back()->with(['createSuccess'=>'Blog created successfully']);
 
     }
 
