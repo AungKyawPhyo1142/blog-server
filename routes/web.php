@@ -26,3 +26,10 @@ Route::get('/view/{id}',[BlogController::class,'goViewBlogPage'])->name('viewBlo
 Route::get('/delete/{id}',[BlogController::class,'deleteBlog'])->name('deleteBlog');
 
 Route::post('/create-blog',[BlogController::class,'createBlog'])->name('createBlog');
+
+Route::prefix('filter')->group(function () {
+    Route::get('/cs',[BlogController::class,'filterByComputerScience'])->name('filter#cs');
+    Route::get('/ks',[BlogController::class,'filterByKnowledgeSharing'])->name('filter#ks');
+    Route::get('/pr',[BlogController::class,'filterByProgramming'])->name('filter#pr');
+    Route::get('/tp',[BlogController::class,'filterByTips'])->name('filter#tp');
+});

@@ -1,12 +1,13 @@
 @extends('dashboard')
 
+
 @section('content')
 
     <div class="flex py-[5em] justify-center">
         <div class="container w-3/5 flex flex-col gap-[2rem]">
 
             <div class="top_container grid place-items-center">
-                <img src="{{asset('blogImages/'.$data->image)}}" alt="" srcset="">
+                <img src="{{asset('storage/blogImages/'.$data->image)}}" alt="" srcset="">
             </div>
             <div class="bottom_container flex flex-col gap-[1.45em]">
                 <div class="heading_container flex flex-col gap-[0.75em]">
@@ -29,7 +30,7 @@
                 </div>
                 <div class="content_container flex flex-col gap-[1.35em]">
                     <p class="leading-8">
-                        {{$data->content}}
+                        {!! nl2br(e($data->content)) !!}
                     </p>
 
                     <div class="">
