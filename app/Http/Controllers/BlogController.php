@@ -22,6 +22,12 @@ class BlogController extends Controller
         return view('pages.viewContent',compact('data'));
     }
 
+    public function deleteBlog($id){
+        blog::where('id',$id)->delete();
+
+        return redirect()->route('mainContent')->with(['deleteSuccess'=>'Your blog has been deleted successfully!']);
+    }
+
     public function createBlog(Request $request){
         $this->validateBlog($request);
         $data = $this->getBlogData($request);
@@ -32,7 +38,7 @@ class BlogController extends Controller
         $data['image'] = $fileName;
         blog::create($data);
 
-        return back()->with(['createSuccess'=>'Blog created successfully']);
+        return back()->with(['createSuccess'=>'Blog created successfully!']);
 
     }
 
