@@ -21,4 +21,7 @@ Route::get('/', function () {
 })->name('mainContent');
 
 Route::get('/create',[BlogController::class,'goBlogPage'])->name('createBlogPage');
+Route::get('/edit',[BlogController::class,'goEditBlogPage'])->name('editBlogPage');
+Route::get('/view/{id}',[BlogController::class,'goViewBlogPage'])->name('viewBlogPage');
+
 Route::post('/create-blog',[BlogController::class,'createBlog'])->name('createBlog');

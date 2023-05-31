@@ -8,8 +8,18 @@ use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
+    // pages
     public function goBlogPage(){
         return view('pages.createBlogPage');
+    }
+
+    public function goEditBlogPage(){
+        return view('pages.editContent');
+    }
+
+    public function goViewBlogPage($id){
+        $data = blog::where('id',$id)->first();
+        return view('pages.viewContent',compact('data'));
     }
 
     public function createBlog(Request $request){
