@@ -30,7 +30,7 @@
                 </div>
                 <div class="content_container flex flex-col gap-[1.35em]">
                     <p class="leading-8">
-                        {!! nl2br(e($data->content)) !!}
+                        {!! html_entity_decode(nl2br(e($data->content))) !!}
                     </p>
 
                     <div class="">

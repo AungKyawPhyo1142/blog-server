@@ -21,11 +21,12 @@ Route::get('/', function () {
 })->name('mainContent');
 
 Route::get('/create',[BlogController::class,'goBlogPage'])->name('createBlogPage');
-Route::get('/edit',[BlogController::class,'goEditBlogPage'])->name('editBlogPage');
+Route::get('/edit/{id}',[BlogController::class,'goEditBlogPage'])->name('editBlogPage');
 Route::get('/view/{id}',[BlogController::class,'goViewBlogPage'])->name('viewBlogPage');
 Route::get('/delete/{id}',[BlogController::class,'deleteBlog'])->name('deleteBlog');
 
 Route::post('/create-blog',[BlogController::class,'createBlog'])->name('createBlog');
+Route::post('/update-blog/{id}',[BlogController::class,'updateBlog'])->name('updateBlog');
 
 Route::prefix('filter')->group(function () {
     Route::get('/cs',[BlogController::class,'filterByComputerScience'])->name('filter#cs');

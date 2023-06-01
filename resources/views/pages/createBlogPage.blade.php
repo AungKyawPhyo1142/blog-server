@@ -26,6 +26,12 @@
                 <div>
                     <label for="blog_title" class="block mb-2 text-xl font-medium text-gray-900">Blog Title</label>
                     <input name="blog_title" type="text" id="blog_title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Very cool blog" required>
+                    @error('blog_title')
+                        <small class="text-red-500">
+                            {{$message}}
+                        </small>
+                    @enderror
+
                 </div>
 
                 <div class="">
@@ -55,12 +61,24 @@
                             </div>
                         </li>
                     </ul>
-                                        
+                          
+                    @error('blog_tags')
+                        <small class="text-red-500">
+                            {{$message}}
+                        </small>
+                    @enderror
+
                 </div>
 
                 <div>
                     <label for="blog_content" class="block mb-2 text-xl font-medium text-gray-900">Content</label>
                     <textarea name="blog_content" id="blog_content" rows="10" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your content here..."></textarea>                    
+                    @error('blog_content')
+                        <small class="text-red-500">
+                            {{$message}}
+                        </small>
+                    @enderror
+
                 </div>
                 <div>
                     <label for="blog_image" class="block mb-2 text-xl font-medium text-gray-900">Image</label>
