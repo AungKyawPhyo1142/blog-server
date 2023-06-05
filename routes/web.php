@@ -27,6 +27,7 @@ Route::get('/delete/{id}',[BlogController::class,'deleteBlog'])->name('deleteBlo
 
 Route::post('/create-blog',[BlogController::class,'createBlog'])->name('createBlog');
 Route::post('/update-blog/{id}',[BlogController::class,'updateBlog'])->name('updateBlog');
+Route::post('/search',[BlogController::class,'searchBlog'])->name('searchBlog');
 
 Route::prefix('filter')->group(function () {
     Route::get('/cs',[BlogController::class,'filterByComputerScience'])->name('filter#cs');

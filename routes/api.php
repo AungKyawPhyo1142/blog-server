@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('v1/blogs')->group(function () {
+    Route::get('/all',[BlogController::class,'getAll']);
+    Route::post('/detail',[BlogController::class,'getDetail']);
+    Route::post('/filter',[BlogController::class,'getFilter']);
 });

@@ -27,7 +27,7 @@ class BlogController extends Controller
 
     /* --------------------------------------------------------------------------------- */
 
-    /* ---------------------------- Create, Update, Delete Operations ---------------------------- */
+    /* ---------------------------- Create, Update, Delete, Search Operations ---------------------------- */
         
         // create
         public function createBlog(Request $request){
@@ -86,6 +86,11 @@ class BlogController extends Controller
     
             blog::where('id',$id)->delete();
             return redirect()->route('mainContent')->with(['deleteSuccess'=>'Your blog has been deleted successfully!']);
+        }
+
+        // search
+        public function searchBlog(Request $req){
+            dd($req->all());
         }
 
     /* ------------------------------------------------------------------------------------------- */
