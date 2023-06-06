@@ -28,4 +28,19 @@ class BlogController extends Controller
             'blog' => $data
         ], 200);
     }
+
+    public function getTopRated(){
+        $data = blog::where('rating','>=',4)->orderBy('rating')->limit(3)->get();
+        return response()->json([
+            'blogs' => $data
+        ], 200);
+    }
+
+    public function getRecent(){
+        $data = blog::orderBy('created_at')->limit(3)->get();
+        return response()->json([
+            'blogs' => $data
+        ], 200);
+    }
+
 }

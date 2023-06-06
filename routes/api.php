@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1/blogs')->group(function () {
+    Route::get('/top/rated',[BlogController::class,'getTopRated']);
+    Route::get('/recent',[BlogController::class,'getRecent']);
     Route::get('/all',[BlogController::class,'getAll']);
     Route::post('/detail',[BlogController::class,'getDetail']);
     Route::post('/filter',[BlogController::class,'getFilter']);
