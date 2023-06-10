@@ -25,4 +25,5 @@ Route::prefix('v1/blogs')->group(function () {
     Route::get('/all',[BlogController::class,'getAll']);
     Route::post('/detail',[BlogController::class,'getDetail']);
     Route::post('/filter',[BlogController::class,'getFilter']);
+    Route::post('/search',[BlogController::class,'searchBlog']);
 });
